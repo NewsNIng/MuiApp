@@ -1,0 +1,159 @@
+{
+  "html/Home.html": {
+    "resources": [
+      "js/App/App.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/App.css",
+      "css/mui.min.css",
+      "html/Qa/List.html",
+      "html/Qa/Room.html",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": [
+      "html/Qa/List.html",
+      "html/Qa/Room.html",
+      "html/Box/Room.html",
+      "html/My/My.html",
+      "html/Music/Room.html"
+    ]
+  },
+  "html/Qa/List.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/App.css",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "js/vue-tap.js"
+    ],
+    "refer": []
+  },
+  "html/Qa/Room.html": {
+    "resources": [
+      "html/Qa/Sub.html",
+      "css/mui.css",
+      "js/mui.min.js",
+      "css/App.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "html/Qa/Sub.html"
+    ]
+  },
+  "html/Qa/Sub.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "img/ad/ad1.png",
+      "img/ad/ad2.png",
+      "img/2.jpg",
+      "img/1.jpg",
+      "img/3.jpg",
+      "css/App.css",
+      "js/vue-tap.js"
+    ],
+    "refer": []
+  },
+  "html/Box/Room.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/App.css",
+      "css/mui.css",
+      "html/Box/Sub.html"
+    ],
+    "refer": [
+      "html/Box/Sub.html"
+    ]
+  },
+  "html/Box/Sub.html": {
+    "resources": [
+      "js/Common/tesseract.js",
+      "img/name.png",
+      "js/App/App.js",
+      "js/mui.min.js",
+      "css/App.css",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "js/vue-tap.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": []
+  },
+  "html/My/My.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "img/3.jpg",
+      "css/App.css"
+    ],
+    "refer": []
+  },
+  "html/Music/Room.html": {
+    "resources": [
+      "html/Music/Sub.html",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "html/Music/Sub.html"
+    ]
+  },
+  "html/Music/Sub.html": {
+    "resources": [
+      "js/App/App.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/App.css",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "js/vue-tap.js",
+      "fonts/iconfont.ttf",
+      "fonts/mui.ttf",
+      "js/Config/WebService.js",
+      "js/Config/Config.js",
+      "js/Dal/Music.js"
+    ],
+    "refer": [
+      "html/Music/Play.html"
+    ]
+  },
+  "html/Music/Play.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "css/App.css",
+      "js/App/RanDomImg.js",
+      "img/random/zx/6.jpg",
+      "img/random/zx/8.jpg",
+      "img/random/zx/4.jpg",
+      "img/random/zx/16.jpg",
+      "img/random/zx/15.jpg",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "img/ad/ad1.png",
+      "js/App/App.js",
+      "img/random/zx/19.jpg",
+      "img/random/zx/17.jpg",
+      "img/random/zx/1.jpg",
+      "img/random/zx/7.jpg",
+      "img/random/zx/11.jpg",
+      "img/random/zx/5.jpg",
+      "img/random/zx/10.jpg",
+      "img/random/zx/9.jpg",
+      "img/random/zx/2.jpg",
+      "img/random/zx/18.jpg",
+      "img/random/zx/0.jpg",
+      "img/random/zx/12.jpg",
+      "img/random/zx/3.jpg",
+      "img/random/zx/14.jpg",
+      "img/random/zx/13.jpg"
+    ],
+    "refer": []
+  }
+}

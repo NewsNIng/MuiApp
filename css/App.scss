@@ -1,0 +1,136 @@
+$appColor: (main:#515151, white:#fff,blue:#42c8e7,br:#888,gary:#cdcdcd ); //自动处理兼容
+@mixin autoCompatible($key, $val) {
+    -webkit-#{$key}: $val;
+    #{$key}: $val;
+}
+@each $name,
+$color in $appColor {
+    .app-color-#{$name} {
+        color: $color !important;
+    }
+    .app-color-#{$name}-back {
+        background-color: $color !important;
+    }
+    .app-color-btn-#{$name} {
+        border: 0;
+        color: white;
+        border-radius: 3rem;
+        background-color: $color;
+        box-shadow: 2px 2px 10px $color;
+        -webkit-box-shadow: 2px 2px 10px $color;
+        padding: 0.8rem 4rem;
+    }
+    .app-color-btn-#{$name}-outlined {
+        border: 1px solid $color;
+        color: $color;
+        border-radius: 3rem;
+    }
+    @for $i from 2 through 10 {
+        .app-box-shadow-#{$name}-#{$i} {
+            box-shadow: 1px 1px #{$i}px rgba($color,.8);
+        }
+    }
+}
+html {
+    font-size: 10px;
+}
+//文字大小定义
+@for $i from 10 through 100 {
+    .app-text-#{$i} {
+        font-size: ($i/(10))+rem !important;
+    }
+    .app-font-size-#{$i} {
+        font-size: ($i/(10))+rem !important;
+    }
+}
+.mui-tab-item.mui-active {
+    @extend .app-color-br-back;
+}
+.app-header {
+    box-shadow: 0 0 0;
+    @extend .app-color-main-back;
+    * {
+        @extend .app-color-white;
+    }
+}
+//定位
+.app-abs {
+    position: absolute;
+    z-index: 9;
+}
+.app-WCenter {
+    //水平居中
+    @extend .app-abs;
+    left: 50%;
+    @include autoCompatible(transform,translateX(-50%));
+}
+.app-HCenter {
+    //垂直居中
+    @extend .app-abs;
+    top: 50%;
+    @include autoCompatible(transform,translateY(-50%));
+}
+.app-absCenter {
+    //绝对水平垂直居中
+    @extend .app-HCenter;
+    @extend .app-WCenter;
+    @include autoCompatible(transform,translate(-50%,-50%));
+}
+.app-yuan {
+    border-radius: 100%;
+}
+.app-chat-room {
+    margin-top: 0 !important;
+    &:after,
+    &:before {
+        height: 0 !important;
+    }
+    li {
+        @extend .app-box-shadow-gary-10;
+        padding: 1.5rem 1rem;
+        &:after,
+        &:before {
+            height: 0 !important;
+        }
+        .mui-media-object {
+            margin-right: 1.6rem !important;
+        }
+        
+        .mui-media-body {
+            padding: .8rem;
+            margin: 0 .8rem;
+            border-radius: .5rem;
+            &:after {
+                content: '';
+                @extend .app-HCenter;
+                width: 0;
+                height: 0;
+                z-index: 2;
+                @include autoCompatible(transform,translate(-198%,-100%));
+                border: none;
+                border-top: .8rem solid transparent;
+                border-bottom: .8rem solid transparent;
+                border-right: .8rem solid #cdcdcd;
+            }
+        }
+        .app-chat-rigth {
+            .mui-media-object {
+                margin-right: 0 !important;
+                margin-left: 1.6rem !important;
+            }
+            .mui-media-body {
+                &:after {
+                   right:.4rem !important;
+                   transform: translate(-304%,-100%) !important;
+                   -webkit-transform: translate(-304%,-100%) !important;
+//                 @include autoCompatible(transform,translate(-202%,-100%));
+                   border-right: .8rem solid transparent !important;
+                   border-left: .8rem solid #cdcdcd;
+                }
+            }
+        }
+    }
+}
+.app-noactive.mui-active {
+    background: none !important;
+}

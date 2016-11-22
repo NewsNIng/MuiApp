@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/App.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+
+		<div id='box' class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon iconfont icon-youxiyouxiji">
+				    		<span class="mui-badge mui-badge-red">5</span>
+							</span>
+							<div class="mui-media-body">游戏</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon iconfont icon-kaifa"></span>
+							<div class="mui-media-body">开发</div>
+						</a>
+					</li>
+					
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon iconfont icon-yinle"></span> 
+							<div class="mui-media-body">音乐</div>
+						</a>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/App/App.js"></script>
+		<script type="text/javascript" src="../../js/vue.min.js"></script>
+		<script type="text/javascript" src="../../js/vue-tap.js"></script>
+
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#box',
+					deceleration: (mui.os.ios ? 0.003 : 0.0006),
+					down: {
+						callback: down
+					}
+				}
+			});
+
+			DC.ready(function() {
+				//自动上拉
+				setTimeout(function() {
+					mui('#box').pullRefresh().pulldownLoading();
+				}, 200);
+
+			});
+
+			var vm = new Vue({
+				el: 'body',
+				data: {
+					list: []
+				},
+				ready: function() {
+
+				},
+				methods: {
+					//获取列表数据
+					getNetData: function(fn) {
+						setTimeout(function() {
+							fn && fn();
+						}, 1000)
+
+					},
+					//条目点击
+					onTap: function(o) {
+						mui.toast(o.id);
+					}
+				},
+			});
+
+			//下拉刷新
+			function down() {
+				vm.getNetData(function() {
+					mui('#box').pullRefresh().endPulldownToRefresh();
+				});
+			}
+		</script>
+	</body>
+
+</html>

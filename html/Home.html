@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/App.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
+		<style type="text/css">
+			.mui-active._4>span,.mui-active._3>span,.mui-active._2>span,.mui-active._1>span{
+				color: white;
+			}
+			.mui-active._4{
+				background-color: cornflowerblue !important;	
+			}
+			._4>span{
+				color: cornflowerblue;
+			}
+			
+			.mui-active._3{
+				background-color: indianred !important;
+				
+			}
+			._3>span{
+				color: indianred ;
+			}
+			
+			.mui-active._2{
+				background-color: mediumseagreen !important;
+				
+			}
+			._2>span{
+				color: mediumseagreen;
+			}
+			
+			.mui-active._1{
+				background-color: goldenrod !important;
+				
+			}
+			._1>span{
+				color: goldenrod;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		
+		<nav class="mui-bar mui-bar-tab app-color-main-back" style="height: 52px;">
+			<a class="mui-tab-item mui-active app-color-white _1" id='Qa/Room.html'>
+				<span class="mui-icon iconfont icon-icon"></span>
+				<!--<span class="mui-tab-label">主页</span>-->
+			</a>
+			<a class="mui-tab-item  app-color-white _2" id='Box/Room.html'>
+				<span class="mui-icon iconfont icon-daohangzhinanzhen"></span>
+			</a>
+			<a class="mui-tab-item  app-color-white _3" id='Music/Room.html'>
+				<span class="mui-icon iconfont icon-yinle"></span>
+			</a>
+			<a class="mui-tab-item app-color-white _4" id='My/My.html'>
+				<span class="mui-icon iconfont icon-iconfuzhi"></span>
+			</a>
+		</nav>
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/App/App.js"></script>
+		<script>
+			var ws,
+				activeTab = '',
+				subpages = ['Qa/Room.html', 'html/Service.html', 'html/reg.html', 'html/Center.html', 'list.html'],
+				subpage_style = {
+					top: '0px',
+					bottom: '51px',
+					popGesture: 'none'
+				};
+
+			mui.init({
+				gestures: {
+					swipe: false
+				}
+			});
+
+			DC.ready(function() {
+				MenuInit();
+			}, function() {
+				ws = plus.webview.currentWebview();
+				ws.setStyle({
+					popGesture: 'none'
+				});
+
+				var mainHtml = document.getElementById(subpages[0]);
+				mui.trigger(mainHtml, 'tap');
+			});
+
+			function MenuInit() {
+				//选项卡点击事件
+				mui('.mui-bar-tab').on('tap', 'a', function(e) {
+					var that = this;
+					if(activeTab == that.id) {
+						return;
+					}
+					preateHide(ws, that, subpage_style);
+					plus.webview.hide(activeTab);
+					activeTab = that.id;
+				});
+			}
+
+			function preateHide(ws, e, subpage_style) {
+				var p = plus.webview.getWebviewById(e.id);
+				if(!p) {
+					var w = plus.webview.create(e.id, e.id, subpage_style);
+					w.hide();
+					ws.append(w);
+					w.show("fade-in", plus.os.ios ? 300 : 700);
+					return;
+				}
+				if(!p.isVisible()) {
+					p.show("none");
+					return;
+				}
+			};
+			
+			document.addEventListener('pause',function(){
+				
+			});
+		</script>
+	</body>
+
+</html>

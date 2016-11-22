@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/App.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+
+		<style type="text/css">
+			@keyframes rotate {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			/*遮罩*/
+			.mask{
+				display: flex;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				z-index: 0;
+				background-color: rgba(0,0,0,.5);
+			}
+			/*背景*/
+			.blur {
+				background-size: 100%;
+				-webkit-filter: blur(.5rem);
+				/* Chrome, Opera */
+				z-index: -1;
+				position: fixed;
+				height: 100%;
+				width: 100%;
+			}
+			/*专辑图片容器*/
+			.imgRoom {
+				width: 60%;
+				padding-top: 60%;
+				position: relative;
+				margin: 5rem auto;
+				animation: rotate 10s 0ms infinite linear;
+				animation-play-state: paused;
+				max-height: 50rem;
+			}
+			/*歌曲信息容器*/
+			.textRoom{
+				
+			}
+			
+			/*专辑图片*/
+			.imgRoom>img.app-yuan {
+				border: 3rem solid #444;
+				max-width: 30rem;
+				max-height: 30rem;
+			}
+			
+			.mui-content,
+			.app-header {
+				background-color: transparent !important;
+			}
+			
+			.mui-content{
+				max-width: 100%;
+			}
+			
+			
+			/*播放进度条*/
+			.mui-progressbar {
+				width: 66%;
+				display: inline-block;
+				height: .6rem;
+				margin: 0 1rem;
+			}
+			
+			.mui-progressbar>span::after {
+				content: '';
+				position: absolute;
+				transform: translateY(-50%);
+				top: 50%;
+				right: 0;
+				display: inline-block;
+				width: .5rem;
+				height: 1.5rem;
+				border-radius: 100%;
+				z-index: 99;
+				background-color: greenyellow
+			}
+			
+			/*控制栏*/
+			.controls {
+				padding: 2rem 0rem;
+			}
+			
+			.controls .mui-icon {
+				font-size: 4.5rem;
+				margin: 1rem .5rem;
+			}
+			
+			.app-music {
+				text-align: center;
+				width: 100%;
+				bottom: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img class="blur" :style="'background: url('+imgSrc+')  center center;'" />
+		<div class="mask"></div>
+		<header class="mui-bar mui-bar-nav app-header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">
+				<span class="app-text-18">{{name}}</span>
+			</a>
+			<h1 class="mui-title"></h1>
+		</header>
+
+		<div class="mui-content">
+
+			<div class="imgRoom">
+				<img class="app-yuan app-absCenter" width="100%" height="100%" border="0" src="../../img/random/zx/7.jpg" :src='imgSrc' />
+			</div>
+			
+			<div class="textRoom">
+				
+			</div>
+
+			<div class="app-color-white app-text-13 app-music app-abs">
+				<span>{{indexLen}}</span>
+				<div class="mui-progressbar">
+					<span></span>
+				</div>
+				<span>{{maxLen}}</span>
+
+				<div class="controls">
+					<span class="mui-icon iconfont " :class="{'icon-shunxubofang':model===0,'icon-suijibofang':model===1}" @tap='changeModel'></span>
+					<span class="mui-icon iconfont icon-shangyigeshangyiqu" @tap='nextMusic(false)'></span>
+					<span class="mui-icon iconfont" :class="{'icon-zanting':isPlay,'icon-bofang':!isPlay}" @tap='action'></span>
+					<span class="mui-icon iconfont icon-xiayigexiayiqu" @tap='nextMusic(true)'></span>
+					<span class="mui-icon iconfont icon-xiazai" @tap='downMusic'></span>
+				</div>
+			</div>
+
+		</div>
+
+		<audio :src='src' autoplay="autoplay"></audio>
+
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/App/App.js"></script>
+		<!--随机图片-->
+		<script src="../../js/App/RanDomImg.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			mui.back = function() {
+				cw.hide('slide-out-bottom', 250);
+				return false;
+			}
+
+			var cw, vc;
+			mui.plusReady(function() {
+				cw = plus.webview.currentWebview();
+				cw.addEventListener('hide', function() {
+					vc = DC.createRect(vm.imgSrc, function() {
+						vc && vc.hide();
+						cw.show('slide-in-bottom');
+					});
+				});
+			});
+
+			//歌曲改变事件
+			window.addEventListener('_CHANGE_MUSIC_', function(data) {
+				vc && vc.hide();
+				data = data.detail.data;
+				mui.extend(vm.data, data);
+				vm.getRanDomImg();
+				vm.playMusic();
+
+			});
+
+			//view 隐藏
+			window.addEventListener('_VIEW_HIDE_', function() {
+				vc && vc.hide();
+			});
+
+			var mp3 = DC.$('audio').get(0),
+				img$ = DC.$('.imgRoom'),
+				blur$ = DC.$('.blur');
+
+			var vm = new Vue({
+				el: 'body',
+				data: {
+					list: [],
+					crr: 0,
+					data: { //当前下标音乐
+						t: 0,
+						s: '',
+						n: '爱情三脚猫',
+						u: ''
+					},
+					imgSrc: '', //专辑图片
+					pro: 0, //进度条
+
+					isPlay: false, //是否在播放
+					indexLen: '00:00',
+					maxLen: '00:00',
+					model: 1, //播放模式0顺序，1随机
+
+				},
+				computed: {
+					src: function() {
+						var head = 'http://zj.djye.com/';
+						return head + this.data.u;
+					},
+					name: function() {
+						return this.data.n;
+					}
+				},
+				ready: function() {
+					var _vm = this;
+					mui.plusReady(function() {
+						var w = plus.webview.currentWebview();
+						mui.extend(_vm.data, w.data);
+						//获取随即图
+						_vm.getRanDomImg();
+						//初始化事件
+						_vm._mp3EventInit();
+
+					});
+					
+					_vm._readMusicList();
+
+				},
+				methods: {
+					getRanDomImg: function() {
+						this.imgSrc = randomImg.zx();
+					},
+
+					_updatePro: function() {
+						mui('.mui-progressbar').progressbar().setProgress(this.pro);
+					},
+
+					//播放暂停
+					action: function() {
+						if(this.isPlay) {
+							this.stopMusic();
+						} else {
+							this.playMusic();
+						}
+						this.isPlay = !this.isPlay;
+
+					},
+					//改变播放顺序模式
+					changeModel: function(){
+						this.model = +!this.model;
+					},
+
+					//开始播放
+					playMusic: function() {
+						mp3.play();
+					},
+					//暂停 停止
+					stopMusic: function() {
+						mp3.pause();
+					},
+
+					//播放器事件初始化
+					_mp3EventInit: function() {
+						var _vm = this;
+						//当媒介元素的持续时间以及其他媒介数据已加载时
+						mp3.onloadeddata = function() {
+							this.maxLen = this._timeToString(mp3.duration);
+						}.bind(this);
+						//当前播放进度改变时
+						mp3.ontimeupdate = function() {
+							var currentPos = mp3.currentTime;
+							this.pro = 100 * currentPos / mp3.duration;
+							this.indexLen = this._timeToString(currentPos);
+							this._updatePro();
+						}.bind(this);
+
+					},
+					//时间转化
+					_timeToString: function(t) {
+						var m = Math.floor(t / 60);
+						m < 10 && (m = '0' + m);
+						return m + ":" + (t % 60 / 100).toFixed(2).slice(-2);
+					},
+					//读取本地音乐
+					_readMusicList: function() {
+						var _vm = this;
+						var list = window.localStorage.getItem("_MUSIC_LIST_");
+						list = JSON.parse(list);
+						_vm.list.length = 0;
+						_vm.list.push.apply(_vm.list, list);
+					},
+					//加载音乐
+					loadMusic: function() {
+						this.getRanDomImg();
+						mui.extend(this.data, this.list[this.crr]);
+						this.playMusic();
+					},
+					//下一首
+					nextMusic: function(p) {
+						[function(x) {
+								this.crr += x;
+							},
+							function() {
+								this.crr = this._getRanDomNum();
+							},
+						][this.model + ''].bind(this)(p ? 1 : -1);
+						this.loadMusic();
+					},
+					//获取随机音乐顺序
+					_getRanDomNum: function() {
+						return Math.floor(Math.random() * (this.list.length - 1));
+					},
+					
+					//下载音乐
+					downMusic:function(){
+						var url = this.src;
+						console.log(url);
+						return;
+						var w = plus.nativeUI.showWaiting('正在下载...',{
+							width:'50%'
+						});
+						
+						DC.downFile(url,function(err,path){
+							//下载完毕
+							if(w){
+								w.close();
+								w = null;
+							}
+							
+							if(!err){
+								mui.alert('下载成功：'+path);
+							}else{
+								mui.alert('下载失败'+JSON.stringify(err));
+							}
+						},function(size){
+							//下载进度改变
+							w && w.setTitle(size+'%');
+						});
+					}
+
+				},
+				watch: {
+					isPlay: function() {
+						var _vm = this;
+						if(_vm.isPlay) { //如果正在播放
+							img$.css('animationPlayState', 'running');
+						} else {
+							img$.css('animationPlayState', 'paused');
+						}
+					},
+					//播放模式改变
+					model: function(){
+						mui.toast((this.model?'随机':'顺序')+'播放');
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

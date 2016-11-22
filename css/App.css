@@ -1,0 +1,1117 @@
+.app-color-main {
+  color: #515151 !important;
+}
+
+.app-color-main-back, .app-header {
+  background-color: #515151 !important;
+}
+
+.app-color-btn-main {
+  border: 0;
+  color: white;
+  border-radius: 3rem;
+  background-color: #515151;
+  box-shadow: 2px 2px 10px #515151;
+  -webkit-box-shadow: 2px 2px 10px #515151;
+  padding: 0.8rem 4rem;
+}
+
+.app-color-btn-main-outlined {
+  border: 1px solid #515151;
+  color: #515151;
+  border-radius: 3rem;
+}
+
+.app-box-shadow-main-2 {
+  box-shadow: 1px 1px 2px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-3 {
+  box-shadow: 1px 1px 3px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-4 {
+  box-shadow: 1px 1px 4px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-5 {
+  box-shadow: 1px 1px 5px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-6 {
+  box-shadow: 1px 1px 6px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-7 {
+  box-shadow: 1px 1px 7px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-8 {
+  box-shadow: 1px 1px 8px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-9 {
+  box-shadow: 1px 1px 9px rgba(81, 81, 81, 0.8);
+}
+
+.app-box-shadow-main-10 {
+  box-shadow: 1px 1px 10px rgba(81, 81, 81, 0.8);
+}
+
+.app-color-white, .app-header * {
+  color: #fff !important;
+}
+
+.app-color-white-back {
+  background-color: #fff !important;
+}
+
+.app-color-btn-white {
+  border: 0;
+  color: white;
+  border-radius: 3rem;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #fff;
+  -webkit-box-shadow: 2px 2px 10px #fff;
+  padding: 0.8rem 4rem;
+}
+
+.app-color-btn-white-outlined {
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 3rem;
+}
+
+.app-box-shadow-white-2 {
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-3 {
+  box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-4 {
+  box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-5 {
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-6 {
+  box-shadow: 1px 1px 6px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-7 {
+  box-shadow: 1px 1px 7px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-8 {
+  box-shadow: 1px 1px 8px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-9 {
+  box-shadow: 1px 1px 9px rgba(255, 255, 255, 0.8);
+}
+
+.app-box-shadow-white-10 {
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8);
+}
+
+.app-color-blue {
+  color: #42c8e7 !important;
+}
+
+.app-color-blue-back {
+  background-color: #42c8e7 !important;
+}
+
+.app-color-btn-blue {
+  border: 0;
+  color: white;
+  border-radius: 3rem;
+  background-color: #42c8e7;
+  box-shadow: 2px 2px 10px #42c8e7;
+  -webkit-box-shadow: 2px 2px 10px #42c8e7;
+  padding: 0.8rem 4rem;
+}
+
+.app-color-btn-blue-outlined {
+  border: 1px solid #42c8e7;
+  color: #42c8e7;
+  border-radius: 3rem;
+}
+
+.app-box-shadow-blue-2 {
+  box-shadow: 1px 1px 2px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-3 {
+  box-shadow: 1px 1px 3px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-4 {
+  box-shadow: 1px 1px 4px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-5 {
+  box-shadow: 1px 1px 5px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-6 {
+  box-shadow: 1px 1px 6px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-7 {
+  box-shadow: 1px 1px 7px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-8 {
+  box-shadow: 1px 1px 8px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-9 {
+  box-shadow: 1px 1px 9px rgba(66, 200, 231, 0.8);
+}
+
+.app-box-shadow-blue-10 {
+  box-shadow: 1px 1px 10px rgba(66, 200, 231, 0.8);
+}
+
+.app-color-br {
+  color: #888 !important;
+}
+
+.app-color-br-back, .mui-tab-item.mui-active {
+  background-color: #888 !important;
+}
+
+.app-color-btn-br {
+  border: 0;
+  color: white;
+  border-radius: 3rem;
+  background-color: #888;
+  box-shadow: 2px 2px 10px #888;
+  -webkit-box-shadow: 2px 2px 10px #888;
+  padding: 0.8rem 4rem;
+}
+
+.app-color-btn-br-outlined {
+  border: 1px solid #888;
+  color: #888;
+  border-radius: 3rem;
+}
+
+.app-box-shadow-br-2 {
+  box-shadow: 1px 1px 2px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-3 {
+  box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-4 {
+  box-shadow: 1px 1px 4px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-5 {
+  box-shadow: 1px 1px 5px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-6 {
+  box-shadow: 1px 1px 6px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-7 {
+  box-shadow: 1px 1px 7px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-8 {
+  box-shadow: 1px 1px 8px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-9 {
+  box-shadow: 1px 1px 9px rgba(136, 136, 136, 0.8);
+}
+
+.app-box-shadow-br-10 {
+  box-shadow: 1px 1px 10px rgba(136, 136, 136, 0.8);
+}
+
+.app-color-gary {
+  color: #cdcdcd !important;
+}
+
+.app-color-gary-back {
+  background-color: #cdcdcd !important;
+}
+
+.app-color-btn-gary {
+  border: 0;
+  color: white;
+  border-radius: 3rem;
+  background-color: #cdcdcd;
+  box-shadow: 2px 2px 10px #cdcdcd;
+  -webkit-box-shadow: 2px 2px 10px #cdcdcd;
+  padding: 0.8rem 4rem;
+}
+
+.app-color-btn-gary-outlined {
+  border: 1px solid #cdcdcd;
+  color: #cdcdcd;
+  border-radius: 3rem;
+}
+
+.app-box-shadow-gary-2 {
+  box-shadow: 1px 1px 2px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-3 {
+  box-shadow: 1px 1px 3px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-4 {
+  box-shadow: 1px 1px 4px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-5 {
+  box-shadow: 1px 1px 5px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-6 {
+  box-shadow: 1px 1px 6px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-7 {
+  box-shadow: 1px 1px 7px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-8 {
+  box-shadow: 1px 1px 8px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-9 {
+  box-shadow: 1px 1px 9px rgba(205, 205, 205, 0.8);
+}
+
+.app-box-shadow-gary-10, .app-chat-room li {
+  box-shadow: 1px 1px 10px rgba(205, 205, 205, 0.8);
+}
+
+html {
+  font-size: 10px;
+}
+
+.app-text-10 {
+  font-size: 1rem !important;
+}
+
+.app-font-size-10 {
+  font-size: 1rem !important;
+}
+
+.app-text-11 {
+  font-size: 1.1rem !important;
+}
+
+.app-font-size-11 {
+  font-size: 1.1rem !important;
+}
+
+.app-text-12 {
+  font-size: 1.2rem !important;
+}
+
+.app-font-size-12 {
+  font-size: 1.2rem !important;
+}
+
+.app-text-13 {
+  font-size: 1.3rem !important;
+}
+
+.app-font-size-13 {
+  font-size: 1.3rem !important;
+}
+
+.app-text-14 {
+  font-size: 1.4rem !important;
+}
+
+.app-font-size-14 {
+  font-size: 1.4rem !important;
+}
+
+.app-text-15 {
+  font-size: 1.5rem !important;
+}
+
+.app-font-size-15 {
+  font-size: 1.5rem !important;
+}
+
+.app-text-16 {
+  font-size: 1.6rem !important;
+}
+
+.app-font-size-16 {
+  font-size: 1.6rem !important;
+}
+
+.app-text-17 {
+  font-size: 1.7rem !important;
+}
+
+.app-font-size-17 {
+  font-size: 1.7rem !important;
+}
+
+.app-text-18 {
+  font-size: 1.8rem !important;
+}
+
+.app-font-size-18 {
+  font-size: 1.8rem !important;
+}
+
+.app-text-19 {
+  font-size: 1.9rem !important;
+}
+
+.app-font-size-19 {
+  font-size: 1.9rem !important;
+}
+
+.app-text-20 {
+  font-size: 2rem !important;
+}
+
+.app-font-size-20 {
+  font-size: 2rem !important;
+}
+
+.app-text-21 {
+  font-size: 2.1rem !important;
+}
+
+.app-font-size-21 {
+  font-size: 2.1rem !important;
+}
+
+.app-text-22 {
+  font-size: 2.2rem !important;
+}
+
+.app-font-size-22 {
+  font-size: 2.2rem !important;
+}
+
+.app-text-23 {
+  font-size: 2.3rem !important;
+}
+
+.app-font-size-23 {
+  font-size: 2.3rem !important;
+}
+
+.app-text-24 {
+  font-size: 2.4rem !important;
+}
+
+.app-font-size-24 {
+  font-size: 2.4rem !important;
+}
+
+.app-text-25 {
+  font-size: 2.5rem !important;
+}
+
+.app-font-size-25 {
+  font-size: 2.5rem !important;
+}
+
+.app-text-26 {
+  font-size: 2.6rem !important;
+}
+
+.app-font-size-26 {
+  font-size: 2.6rem !important;
+}
+
+.app-text-27 {
+  font-size: 2.7rem !important;
+}
+
+.app-font-size-27 {
+  font-size: 2.7rem !important;
+}
+
+.app-text-28 {
+  font-size: 2.8rem !important;
+}
+
+.app-font-size-28 {
+  font-size: 2.8rem !important;
+}
+
+.app-text-29 {
+  font-size: 2.9rem !important;
+}
+
+.app-font-size-29 {
+  font-size: 2.9rem !important;
+}
+
+.app-text-30 {
+  font-size: 3rem !important;
+}
+
+.app-font-size-30 {
+  font-size: 3rem !important;
+}
+
+.app-text-31 {
+  font-size: 3.1rem !important;
+}
+
+.app-font-size-31 {
+  font-size: 3.1rem !important;
+}
+
+.app-text-32 {
+  font-size: 3.2rem !important;
+}
+
+.app-font-size-32 {
+  font-size: 3.2rem !important;
+}
+
+.app-text-33 {
+  font-size: 3.3rem !important;
+}
+
+.app-font-size-33 {
+  font-size: 3.3rem !important;
+}
+
+.app-text-34 {
+  font-size: 3.4rem !important;
+}
+
+.app-font-size-34 {
+  font-size: 3.4rem !important;
+}
+
+.app-text-35 {
+  font-size: 3.5rem !important;
+}
+
+.app-font-size-35 {
+  font-size: 3.5rem !important;
+}
+
+.app-text-36 {
+  font-size: 3.6rem !important;
+}
+
+.app-font-size-36 {
+  font-size: 3.6rem !important;
+}
+
+.app-text-37 {
+  font-size: 3.7rem !important;
+}
+
+.app-font-size-37 {
+  font-size: 3.7rem !important;
+}
+
+.app-text-38 {
+  font-size: 3.8rem !important;
+}
+
+.app-font-size-38 {
+  font-size: 3.8rem !important;
+}
+
+.app-text-39 {
+  font-size: 3.9rem !important;
+}
+
+.app-font-size-39 {
+  font-size: 3.9rem !important;
+}
+
+.app-text-40 {
+  font-size: 4rem !important;
+}
+
+.app-font-size-40 {
+  font-size: 4rem !important;
+}
+
+.app-text-41 {
+  font-size: 4.1rem !important;
+}
+
+.app-font-size-41 {
+  font-size: 4.1rem !important;
+}
+
+.app-text-42 {
+  font-size: 4.2rem !important;
+}
+
+.app-font-size-42 {
+  font-size: 4.2rem !important;
+}
+
+.app-text-43 {
+  font-size: 4.3rem !important;
+}
+
+.app-font-size-43 {
+  font-size: 4.3rem !important;
+}
+
+.app-text-44 {
+  font-size: 4.4rem !important;
+}
+
+.app-font-size-44 {
+  font-size: 4.4rem !important;
+}
+
+.app-text-45 {
+  font-size: 4.5rem !important;
+}
+
+.app-font-size-45 {
+  font-size: 4.5rem !important;
+}
+
+.app-text-46 {
+  font-size: 4.6rem !important;
+}
+
+.app-font-size-46 {
+  font-size: 4.6rem !important;
+}
+
+.app-text-47 {
+  font-size: 4.7rem !important;
+}
+
+.app-font-size-47 {
+  font-size: 4.7rem !important;
+}
+
+.app-text-48 {
+  font-size: 4.8rem !important;
+}
+
+.app-font-size-48 {
+  font-size: 4.8rem !important;
+}
+
+.app-text-49 {
+  font-size: 4.9rem !important;
+}
+
+.app-font-size-49 {
+  font-size: 4.9rem !important;
+}
+
+.app-text-50 {
+  font-size: 5rem !important;
+}
+
+.app-font-size-50 {
+  font-size: 5rem !important;
+}
+
+.app-text-51 {
+  font-size: 5.1rem !important;
+}
+
+.app-font-size-51 {
+  font-size: 5.1rem !important;
+}
+
+.app-text-52 {
+  font-size: 5.2rem !important;
+}
+
+.app-font-size-52 {
+  font-size: 5.2rem !important;
+}
+
+.app-text-53 {
+  font-size: 5.3rem !important;
+}
+
+.app-font-size-53 {
+  font-size: 5.3rem !important;
+}
+
+.app-text-54 {
+  font-size: 5.4rem !important;
+}
+
+.app-font-size-54 {
+  font-size: 5.4rem !important;
+}
+
+.app-text-55 {
+  font-size: 5.5rem !important;
+}
+
+.app-font-size-55 {
+  font-size: 5.5rem !important;
+}
+
+.app-text-56 {
+  font-size: 5.6rem !important;
+}
+
+.app-font-size-56 {
+  font-size: 5.6rem !important;
+}
+
+.app-text-57 {
+  font-size: 5.7rem !important;
+}
+
+.app-font-size-57 {
+  font-size: 5.7rem !important;
+}
+
+.app-text-58 {
+  font-size: 5.8rem !important;
+}
+
+.app-font-size-58 {
+  font-size: 5.8rem !important;
+}
+
+.app-text-59 {
+  font-size: 5.9rem !important;
+}
+
+.app-font-size-59 {
+  font-size: 5.9rem !important;
+}
+
+.app-text-60 {
+  font-size: 6rem !important;
+}
+
+.app-font-size-60 {
+  font-size: 6rem !important;
+}
+
+.app-text-61 {
+  font-size: 6.1rem !important;
+}
+
+.app-font-size-61 {
+  font-size: 6.1rem !important;
+}
+
+.app-text-62 {
+  font-size: 6.2rem !important;
+}
+
+.app-font-size-62 {
+  font-size: 6.2rem !important;
+}
+
+.app-text-63 {
+  font-size: 6.3rem !important;
+}
+
+.app-font-size-63 {
+  font-size: 6.3rem !important;
+}
+
+.app-text-64 {
+  font-size: 6.4rem !important;
+}
+
+.app-font-size-64 {
+  font-size: 6.4rem !important;
+}
+
+.app-text-65 {
+  font-size: 6.5rem !important;
+}
+
+.app-font-size-65 {
+  font-size: 6.5rem !important;
+}
+
+.app-text-66 {
+  font-size: 6.6rem !important;
+}
+
+.app-font-size-66 {
+  font-size: 6.6rem !important;
+}
+
+.app-text-67 {
+  font-size: 6.7rem !important;
+}
+
+.app-font-size-67 {
+  font-size: 6.7rem !important;
+}
+
+.app-text-68 {
+  font-size: 6.8rem !important;
+}
+
+.app-font-size-68 {
+  font-size: 6.8rem !important;
+}
+
+.app-text-69 {
+  font-size: 6.9rem !important;
+}
+
+.app-font-size-69 {
+  font-size: 6.9rem !important;
+}
+
+.app-text-70 {
+  font-size: 7rem !important;
+}
+
+.app-font-size-70 {
+  font-size: 7rem !important;
+}
+
+.app-text-71 {
+  font-size: 7.1rem !important;
+}
+
+.app-font-size-71 {
+  font-size: 7.1rem !important;
+}
+
+.app-text-72 {
+  font-size: 7.2rem !important;
+}
+
+.app-font-size-72 {
+  font-size: 7.2rem !important;
+}
+
+.app-text-73 {
+  font-size: 7.3rem !important;
+}
+
+.app-font-size-73 {
+  font-size: 7.3rem !important;
+}
+
+.app-text-74 {
+  font-size: 7.4rem !important;
+}
+
+.app-font-size-74 {
+  font-size: 7.4rem !important;
+}
+
+.app-text-75 {
+  font-size: 7.5rem !important;
+}
+
+.app-font-size-75 {
+  font-size: 7.5rem !important;
+}
+
+.app-text-76 {
+  font-size: 7.6rem !important;
+}
+
+.app-font-size-76 {
+  font-size: 7.6rem !important;
+}
+
+.app-text-77 {
+  font-size: 7.7rem !important;
+}
+
+.app-font-size-77 {
+  font-size: 7.7rem !important;
+}
+
+.app-text-78 {
+  font-size: 7.8rem !important;
+}
+
+.app-font-size-78 {
+  font-size: 7.8rem !important;
+}
+
+.app-text-79 {
+  font-size: 7.9rem !important;
+}
+
+.app-font-size-79 {
+  font-size: 7.9rem !important;
+}
+
+.app-text-80 {
+  font-size: 8rem !important;
+}
+
+.app-font-size-80 {
+  font-size: 8rem !important;
+}
+
+.app-text-81 {
+  font-size: 8.1rem !important;
+}
+
+.app-font-size-81 {
+  font-size: 8.1rem !important;
+}
+
+.app-text-82 {
+  font-size: 8.2rem !important;
+}
+
+.app-font-size-82 {
+  font-size: 8.2rem !important;
+}
+
+.app-text-83 {
+  font-size: 8.3rem !important;
+}
+
+.app-font-size-83 {
+  font-size: 8.3rem !important;
+}
+
+.app-text-84 {
+  font-size: 8.4rem !important;
+}
+
+.app-font-size-84 {
+  font-size: 8.4rem !important;
+}
+
+.app-text-85 {
+  font-size: 8.5rem !important;
+}
+
+.app-font-size-85 {
+  font-size: 8.5rem !important;
+}
+
+.app-text-86 {
+  font-size: 8.6rem !important;
+}
+
+.app-font-size-86 {
+  font-size: 8.6rem !important;
+}
+
+.app-text-87 {
+  font-size: 8.7rem !important;
+}
+
+.app-font-size-87 {
+  font-size: 8.7rem !important;
+}
+
+.app-text-88 {
+  font-size: 8.8rem !important;
+}
+
+.app-font-size-88 {
+  font-size: 8.8rem !important;
+}
+
+.app-text-89 {
+  font-size: 8.9rem !important;
+}
+
+.app-font-size-89 {
+  font-size: 8.9rem !important;
+}
+
+.app-text-90 {
+  font-size: 9rem !important;
+}
+
+.app-font-size-90 {
+  font-size: 9rem !important;
+}
+
+.app-text-91 {
+  font-size: 9.1rem !important;
+}
+
+.app-font-size-91 {
+  font-size: 9.1rem !important;
+}
+
+.app-text-92 {
+  font-size: 9.2rem !important;
+}
+
+.app-font-size-92 {
+  font-size: 9.2rem !important;
+}
+
+.app-text-93 {
+  font-size: 9.3rem !important;
+}
+
+.app-font-size-93 {
+  font-size: 9.3rem !important;
+}
+
+.app-text-94 {
+  font-size: 9.4rem !important;
+}
+
+.app-font-size-94 {
+  font-size: 9.4rem !important;
+}
+
+.app-text-95 {
+  font-size: 9.5rem !important;
+}
+
+.app-font-size-95 {
+  font-size: 9.5rem !important;
+}
+
+.app-text-96 {
+  font-size: 9.6rem !important;
+}
+
+.app-font-size-96 {
+  font-size: 9.6rem !important;
+}
+
+.app-text-97 {
+  font-size: 9.7rem !important;
+}
+
+.app-font-size-97 {
+  font-size: 9.7rem !important;
+}
+
+.app-text-98 {
+  font-size: 9.8rem !important;
+}
+
+.app-font-size-98 {
+  font-size: 9.8rem !important;
+}
+
+.app-text-99 {
+  font-size: 9.9rem !important;
+}
+
+.app-font-size-99 {
+  font-size: 9.9rem !important;
+}
+
+.app-text-100 {
+  font-size: 10rem !important;
+}
+
+.app-font-size-100 {
+  font-size: 10rem !important;
+}
+
+.app-header {
+  box-shadow: 0 0 0;
+}
+
+.app-abs, .app-WCenter, .app-absCenter, .app-HCenter, .app-chat-room li .mui-media-body:after {
+  position: absolute;
+  z-index: 9;
+}
+
+.app-WCenter, .app-absCenter {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.app-HCenter, .app-absCenter, .app-chat-room li .mui-media-body:after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.app-absCenter {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.app-yuan {
+  border-radius: 100%;
+}
+
+.app-chat-room {
+  margin-top: 0 !important;
+}
+
+.app-chat-room:after, .app-chat-room:before {
+  height: 0 !important;
+}
+
+.app-chat-room li {
+  padding: 1.5rem 1rem;
+}
+
+.app-chat-room li:after, .app-chat-room li:before {
+  height: 0 !important;
+}
+
+.app-chat-room li .mui-media-object {
+  margin-right: 1.6rem !important;
+}
+
+.app-chat-room li .mui-media-body {
+  padding: .8rem;
+  margin: 0 .8rem;
+  border-radius: .5rem;
+}
+
+.app-chat-room li .mui-media-body:after {
+  content: '';
+  width: 0;
+  height: 0;
+  z-index: 2;
+  -webkit-transform: translate(-198%, -100%);
+  transform: translate(-198%, -100%);
+  border: none;
+  border-top: .8rem solid transparent;
+  border-bottom: .8rem solid transparent;
+  border-right: .8rem solid #cdcdcd;
+}
+
+.app-chat-room li .app-chat-rigth .mui-media-object {
+  margin-right: 0 !important;
+  margin-left: 1.6rem !important;
+}
+
+.app-chat-room li .app-chat-rigth .mui-media-body:after {
+  right: .4rem !important;
+  transform: translate(-304%, -100%) !important;
+  -webkit-transform: translate(-304%, -100%) !important;
+  border-right: .8rem solid transparent !important;
+  border-left: .8rem solid #cdcdcd;
+}
+
+.app-noactive.mui-active {
+  background: none !important;
+}
