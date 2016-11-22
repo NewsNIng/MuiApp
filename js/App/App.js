@@ -153,6 +153,12 @@ var DC = (function($, undefined) {
 }(DC));
 
 (function(dc) {
+	/**
+	 * 文件下载
+	 * @param {String} url 文件地址
+	 * @param {Function} callback 完成时的回调
+	 * @param {Function} downCallBack 进度变化的回调
+	 */
 	dc.downFile = function(url, callback, downCallBack) {
 		if(!url) {
 			return;
@@ -190,7 +196,6 @@ var DC = (function($, undefined) {
 }(DC));
 
 (function(dc) {
-	//创建原生obj
 	dc.createRect = function(url, callback, _op) {
 
 		var that = this;
@@ -206,7 +211,7 @@ var DC = (function($, undefined) {
 		dc.$$.extend(op, _op || {});
 
 		var view = plus.nativeObj.View.getViewById('absView');
-		
+
 		view = view || new plus.nativeObj.View('absView', op);
 
 		var img = plus.nativeObj.Bitmap.getBitmapById('absImg');
@@ -225,8 +230,7 @@ var DC = (function($, undefined) {
 			width: '77px',
 			height: '77px',
 		});
-		
-		
+
 		view.addEventListener('click', function(e) {
 			callback && callback();
 		});
@@ -241,12 +245,30 @@ var DC = (function($, undefined) {
 			});
 			view.show();
 		});
-		
+
 		return {
-			hide:function(){
+			hide: function() {
 				view.hide();
 			}
 		}
 
+	}
+}(DC));
+
+(function(dc) {
+	/**
+	 * 打开内置简单浏览器
+	 * @param {String} url 跳转的网址
+	 * @param {Object} data 自定义参数 可缺省
+	 */
+	dc.openBrowser = function(url,data) {
+		dc.$$.openWindow({
+			url: '_www/html/Common/Browser.html',
+			id: 'browser',
+			extras: {
+				url: url,
+				data: data
+			}
+		});
 	}
 }(DC));

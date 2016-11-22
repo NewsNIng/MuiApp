@@ -23,211 +23,25 @@
 	</head>
 
 	<body>
-
-		<div id='box' class="mui-content mui-scroll-wrapper">
+		<div id='app' class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
-				<div class="mui-slider">
-					<div class="mui-slider-group mui-slider-loop">
-
-						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<a href="#" class="app-color-br-back">
-								<img :src='carousel[cLen].img'>
-								<!--<p class="mui-slider-title" v-text='carousel[cLen].title'></p>-->
-							</a>
-						</div>
-
-						<div class="mui-slider-item" :class='{"mui-active":!$index}' v-for='o in carousel'>
-							<a href="#" class="app-color-br-back">
-								<img :src='o.img'>
-								<!--<p class="mui-slider-title" v-text='o.title'></p>-->
-							</a>
-						</div>
-
-						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) mngmtTitle-->
-
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<a href="#" class="app-color-br-back">
-								<img :src='carousel[0].img'>
-								<!--<p class="mui-slider-title" v-text='carousel[0].title'></p>-->
-							</a>
-						</div>
-
-					</div>
-					<div class="mui-slider-indicator">
-						<div v-for='o in carousel' class="mui-indicator" :class='{"mui-active":!$index}'></div>
-					</div>
-				</div>
-
-				<!--新闻列表-->
-
-				<ul class="mui-table-view app-chat-room ">
-					<li class="mui-table-view-cell mui-media" v-for='o in list' v-tap='onTap(o)'>
-						<a href="javascript:;" class="app-noactive ">
-							<img class="mui-media-object mui-pull-left app-yuan" :src="o.img">
-							<div class="mui-media-body app-color-gary-back">
-								<div class="mui-ellipsis-2" v-text='o.title'></div>
-								<p class="mui-ellipsis" v-text='o.sourse'></p>
-							</div>
-						</a>
-						
-						<a href="javascript:;" class="app-noactive app-chat-rigth">
-							<img class="mui-media-object mui-pull-right app-yuan" :src="o.img">
-							<div class="mui-media-body app-color-gary-back">
-								<div class="mui-ellipsis-2" v-text='o.title'></div>
-								<p class="mui-ellipsis" v-text='o.sourse'></p>
-							</div>
-						</a>
-					</li>
-					
-
-				</ul>
-
+				<app-carousel :data='carousel'></app-carousel>
+				<app-list :data='list' ></app-list>
 			</div>
 		</div>
+		
 		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="../../js/vue.min.js"></script>
-		<script type="text/javascript" src="../../js/vue-tap.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/vue-tap.js"></script>
 
-		<script type="text/javascript">
-			var _carousel = [{
-				id: 1,
-				title: '只要你有梦想,这里就是舞台',
-				img: '../../img/ad/ad1.png',
-			}, {
-				id: 2,
-				title: '飞速编码的极客工具', 
-				img: '../../img/ad/ad2.png',
-			}];
+		
+		<!--轮播-->
+		<script type="text/javascript" src="../../js/Com/Com_Carousel.js"></script>
+		<!--列表组件-->
+		<script type="text/javascript" src="../../js/Com/Com_List.js"></script>
 
+		<script src="index.js"></script>
 
-			var _list = (function() {
-				var index = 0;
-				return function(){
-					var rs = [];
-					for(var i = index; i < index+10; i++) {
-						rs.push({
-							id: i,
-							title: '我叮当猫无话可说'+i,
-							img: '../../img/'+(i%3+1)+'.jpg',
-							sourse: ['新浪','腾讯','网易'][i%3]
-						});
-					}
-					index = i;
-					return rs;
-				}
-			}());
-
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#box',
-					deceleration: (mui.os.ios ? 0.003 : 0.0006),
-					down: {
-						callback: down
-					},
-					up: {
-						callback: up
-					}
-				}
-			});
-
-			mui.ready(function() {
-				//自动上拉
-				setTimeout(function() {
-					mui('#box').pullRefresh().pulldownLoading();
-				}, 200);
-			});
-
-			var vm = new Vue({
-				el: 'body',
-				data: {
-					list: [], //列表数据
-					carousel: [], //轮播
-					page: { //页面数据
-						No: 1, //当前下标
-						Size: 4, //数量
-						oNo: 1, //上一次啊的上拉下标
-						isDown: false, //是否下拉
-						fname: 'push'
-					}
-				},
-				ready: function() {
-
-				},
-				computed: {
-					//计算轮播图长度 -1 
-					cLen: function() {
-						return this.carousel.length - 1;
-					}
-				},
-				methods: {
-					//获取列表数据
-					getNetData: function(fn) {
-						var _vm = this;
-						if(_vm.page.isDown) { //下拉
-							//记住上拉的页数
-							_vm.page.No = 1;
-							_vm.page.fname = 'unshift';
-						} else { //上拉
-							//重新获取上拉的页数
-							_vm.page.No = _vm.page.oNo++;
-							_vm.page.fname = 'push';
-						}
-						//plus.nativeUI.showWaiting();
-
-						//模拟轮播数据 (如果在下拉刷新的状态下)
-						_vm.page.isDown && setTimeout(function() {
-							_vm.carousel.length = 0;
-							_vm.carousel.push.apply(_vm.carousel, _carousel);
-
-							_vm._carouselInit();
-						}, 200);
-
-						//模拟列表数据 
-						setTimeout(function() {
-							//plus.nativeUI.closeWaiting();
-							
-							var _data = _list();
-							
-							_vm.list[_vm.page.fname].apply(_vm.list, _data);
-							fn && fn(!_data || _data.length === 0);
-						}, 500);
-					},
-					//条目点击
-					onTap: function(o){
-						mui.toast(o.id);
-					},
-					//轮播初始化
-					_carouselInit: function() {
-						setTimeout(function() {
-							//初始化轮播图
-							//因为vue是异步渲染数据，所以这里我们也异步 初始化 自动轮播
-							mui('.mui-slider').slider({
-								interval: 2000
-							});
-						}, 0);
-
-					}
-				},
-			});
-
-			//下拉刷新
-			function down() {
-				vm.page.isDown = true;
-				vm.getNetData(function() {
-					mui('#box').pullRefresh().endPulldownToRefresh();
-				});
-			}
-			//上拉加载更多
-			function up() {
-				vm.page.isDown = false;
-				vm.getNetData(function(c) {
-					mui('#box').pullRefresh().endPullupToRefresh(c);
-				});
-			}
-		</script>
 	</body>
 
 </html>

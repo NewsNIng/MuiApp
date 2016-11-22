@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/App.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav app-header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">简单的内置浏览器</h1>
+		   	<a class="mui-icon mui-icon-more mui-pull-right"></a>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-progressbar mui-progressbar-infinite">
+		    	<span></span>
+		    </div>
+		</div>
+		
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/App/App.js" ></script>
+		<script>
+			var bw = {
+				progressbar : document.querySelector(".mui-progressbar"),
+				header: document.querySelector("header h1")
+			};
+			var w,c,url;
+			mui.init();
+			
+			mui.plusReady(function(){
+				w = plus.webview.currentWebview();
+				url = w.url || 'http://www.szbdedu.com/';
+				c = mui.openWindow(url,url,{
+					styles:{
+						top:'46px',
+						bottom:'0px'
+					},
+					waiting:{
+						autoShow:false
+					}
+				});
+				w.append(c);
+				
+				c.onloading = function(){
+					bw.progressbar.style.display = 'block';
+				}
+				c.onloaded = function(){
+					bw.progressbar.style.display = 'none';
+				}
+				c.addEventListener('titleUpdate',function(){
+					bw.header.innerHTML = c.getTitle();
+				})
+			}); 
+			
+		
+		
+			
+			
+		</script>
+		
+		
+		
+	</body>
+
+</html>

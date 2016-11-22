@@ -18,9 +18,9 @@
 		<div id='box' class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<ul class="mui-table-view">
-					<li class="mui-table-view-cell" v-for='o in list' @tap='onTap(o,$index)'>
+					<li class="mui-table-view-cell" v-for='(val,index) of list' @tap='onTap(val,index)'>
 						<a class="mui-navigate-right">
-							{{$index+1}} : {{o.n}}
+							{{index+1}} : {{val.n}}
 						</a>
 					</li>
 
@@ -32,13 +32,11 @@
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/App/App.js"></script>
 		<script type="text/javascript" src="../../js/vue.min.js"></script>
-		<script type="text/javascript" src="../../js/vue-tap.js"></script>
-		
-		
-		<script type="text/javascript" src="../../js/Config/Config.js" ></script>
-		<script type="text/javascript" src="../../js/Config/WebService.js" ></script>
-		<script type="text/javascript" src="../../js/Dal/Music.js" ></script>
-		
+		<!--<script type="text/javascript" src="../../js/vue-tap.js"></script>-->
+
+		<script type="text/javascript" src="../../js/Config/Config.js"></script>
+		<script type="text/javascript" src="../../js/Config/WebService.js"></script>
+		<script type="text/javascript" src="../../js/Dal/Music.js"></script>
 
 		<script type="text/javascript">
 			mui.init({
@@ -57,24 +55,20 @@
 				setTimeout(function() {
 					mui('#box').pullRefresh().pulldownLoading();
 				}, 200);
-			},function(){
-//				var w = plus.webview.currentWebview();
-//				w.setStyle({
-//					
-//				})
+			}, function() {
+				//				var w = plus.webview.currentWebview();
+				//				w.setStyle({
+				//					
+				//				})
 			});
-			
-			
-			
-			
 
 			var vm = new Vue({
-				el: 'body',
+				el: '#box',
 				data: {
 					list: []
 				},
 				ready: function() {
-					
+
 				},
 				methods: {
 					//获取列表数据
@@ -82,8 +76,7 @@
 						var _vm = this,
 							oldTime = +window.localStorage.getItem('_OLD_TIME_'),
 							nowTime = new Date().getTime();
-						
-							
+
 						if(!oldTime || (nowTime - oldTime) > 259200000) { //3天
 							mui.ajax('http://www.djye.com/kc/data.js', {
 								type: 'get',
@@ -103,7 +96,7 @@
 
 								},
 								error: function(e) {
-									console.log(e.message); 
+									console.log(e.message);
 									fn && fn();
 								}
 							});
@@ -114,22 +107,21 @@
 
 					},
 					//条目点击
-					onTap: function(o,index) {
+					onTap: function(o, index) {
 						var url = 'Play.html',
-						pw = plus.webview.getWebviewById(url);
-						if(pw){
-							mui.fire(pw,'_CHANGE_MUSIC_',{
+							data = {
 								data: o,
 								crr: index
-							});
-							pw.show();
+							},
+							pw = plus.webview.getWebviewById(url);
+							
+						if(pw) {
+							mui.fire(pw, '_CHANGE_MUSIC_',data);
+							pw.show('pop-in');
 							return;
 						}
-						mui.openWindow(url,url,{
-						 	extras:{
-								data:o,
-								crr: index
-							}
+						mui.openWindow(url, url, {
+							extras: data
 						});
 					},
 					//读取本地音乐
@@ -138,7 +130,7 @@
 						var list = window.localStorage.getItem("_MUSIC_LIST_");
 						list = JSON.parse(list);
 						_vm.list.length = 0;
-						_vm.list.push.apply(_vm.list, list);						
+						_vm.list.push.apply(_vm.list, list);
 					}
 				},
 			});

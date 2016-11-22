@@ -12,22 +12,27 @@
 		<style type="text/css">
 			@keyframes rotate {
 				from {
-					transform: rotate(0deg);
+					transform: rotate(0deg) translateZ(0);
+					-webkit-transform: rotate(0deg) translateZ(0);
+					;
 				}
 				to {
-					transform: rotate(360deg);
+					transform: rotate(360deg) translateZ(0);
+					-webkit-transform: rotate(360deg) translateZ(0);
 				}
 			}
 			/*遮罩*/
-			.mask{
+			
+			.mask {
 				display: flex;
 				position: absolute;
 				height: 100%;
 				width: 100%;
 				z-index: 0;
-				background-color: rgba(0,0,0,.5);
+				background-color: rgba(0, 0, 0, .5);
 			}
 			/*背景*/
+			
 			.blur {
 				background-size: 100%;
 				-webkit-filter: blur(.5rem);
@@ -38,21 +43,25 @@
 				width: 100%;
 			}
 			/*专辑图片容器*/
+			
 			.imgRoom {
 				width: 60%;
 				padding-top: 60%;
 				position: relative;
-				margin: 5rem auto;
+				margin: 8rem auto;
 				animation: rotate 10s 0ms infinite linear;
+				-webkit-animation: rotate 10s 0ms infinite linear;
 				animation-play-state: paused;
+				-webkit-animation-play-state: paused;
+				min-width: 15rem;
+				min-height: 15rem;
 				max-height: 50rem;
 			}
 			/*歌曲信息容器*/
-			.textRoom{
-				
-			}
 			
+			.textRoom {}
 			/*专辑图片*/
+			
 			.imgRoom>img.app-yuan {
 				border: 3rem solid #444;
 				max-width: 30rem;
@@ -64,21 +73,25 @@
 				background-color: transparent !important;
 			}
 			
-			.mui-content{
+			.mui-content {
 				max-width: 100%;
 			}
-			
-			
 			/*播放进度条*/
+			
 			.mui-progressbar {
 				width: 66%;
 				display: inline-block;
 				height: .6rem;
 				margin: 0 1rem;
+				background: rgba(0, 0, 0, .25);
+			}
+			
+			.mui-progressbar>span {
+				background: #eee;
 			}
 			
 			.mui-progressbar>span::after {
-				content: '';
+				/*content: '';
 				position: absolute;
 				transform: translateY(-50%);
 				top: 50%;
@@ -88,10 +101,10 @@
 				height: 1.5rem;
 				border-radius: 100%;
 				z-index: 99;
-				background-color: greenyellow
+				background-color: greenyellow*/
 			}
-			
 			/*控制栏*/
+			
 			.controls {
 				padding: 2rem 0rem;
 			}
@@ -106,48 +119,71 @@
 				width: 100%;
 				bottom: 0;
 			}
+			
+			.mui-slider-group {
+				height: 92vh;
+				position: relative;
+			}
+			/*兼容安卓4*/
+			
+			.mui-android-4-0 .mui-slider-group,
+			.mui-android-4-2 .mui-slider-group,
+			.mui-android-4-3 .mui-slider-group {
+				/*padding-bottom: 100%;*/
+			}
+			
+			.textRoom {
+				padding: 3rem;
+			}
 		</style>
 	</head>
 
 	<body>
-		<img class="blur" :style="'background: url('+imgSrc+')  center center;'" />
-		<div class="mask"></div>
-		<header class="mui-bar mui-bar-nav app-header">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">
-				<span class="app-text-18">{{name}}</span>
-			</a>
-			<h1 class="mui-title"></h1>
-		</header>
+		<div id='app'>
+			<img class="blur" :style="'background: url('+imgSrc+')  center center;'" />
+			<div class="mask"></div>
+			<header class="mui-bar mui-bar-nav app-header">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">
+					<span class="app-text-18">{{name}}</span>
+				</a>
+				<h1 class="mui-title"></h1>
+			</header>
 
-		<div class="mui-content">
+			<div class="mui-content">
 
-			<div class="imgRoom">
-				<img class="app-yuan app-absCenter" width="100%" height="100%" border="0" src="../../img/random/zx/7.jpg" :src='imgSrc' />
-			</div>
-			
-			<div class="textRoom">
-				
-			</div>
+				<div class="mui-slider">
+					<div class="mui-slider-group">
+						<div id="item1" class="mui-slider-item mui-control-content mui-active">
+							<div class="imgRoom">
+								<img class="app-yuan app-absCenter" width="100%" height="100%" border="0" src="../../img/random/zx/7.jpg" :src='imgSrc' />
+							</div>
+						</div>
+						<div id="item2mobile" class="mui-slider-item mui-control-content">
+							<div class="textRoom app-color-white app-text-18">
+								<div>这里放置其它信息</div>
+							</div>
+						</div>
+					</div>
 
-			<div class="app-color-white app-text-13 app-music app-abs">
-				<span>{{indexLen}}</span>
-				<div class="mui-progressbar">
-					<span></span>
+					<div class="app-color-white app-text-13 app-music app-abs">
+						<span>{{indexLen}}</span>
+						<div class="mui-progressbar">
+							<span></span>
+						</div>
+						<span>{{maxLen}}</span>
+
+						<div class="controls">
+							<span class="mui-icon iconfont " :class="{'icon-shunxubofang':model===0,'icon-suijibofang':model===1}" @tap='changeModel'></span>
+							<span class="mui-icon iconfont icon-shangyigeshangyiqu" @tap='nextMusic(false)'></span>
+							<span class="mui-icon iconfont" :class="{'icon-zanting':isPlay,'icon-bofang':!isPlay}" @tap='action'></span>
+							<span class="mui-icon iconfont icon-xiayigexiayiqu" @tap='nextMusic(true)'></span>
+							<span class="mui-icon iconfont icon-xiazai" @tap='downMusic'></span>
+						</div>
+					</div>
 				</div>
-				<span>{{maxLen}}</span>
-
-				<div class="controls">
-					<span class="mui-icon iconfont " :class="{'icon-shunxubofang':model===0,'icon-suijibofang':model===1}" @tap='changeModel'></span>
-					<span class="mui-icon iconfont icon-shangyigeshangyiqu" @tap='nextMusic(false)'></span>
-					<span class="mui-icon iconfont" :class="{'icon-zanting':isPlay,'icon-bofang':!isPlay}" @tap='action'></span>
-					<span class="mui-icon iconfont icon-xiayigexiayiqu" @tap='nextMusic(true)'></span>
-					<span class="mui-icon iconfont icon-xiazai" @tap='downMusic'></span>
-				</div>
 			</div>
-
+			<audio :src='src' autoplay="true"></audio>
 		</div>
-
-		<audio :src='src' autoplay="autoplay"></audio>
 
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/vue.min.js"></script>
@@ -158,7 +194,7 @@
 			mui.init();
 
 			mui.back = function() {
-				cw.hide('slide-out-bottom', 250);
+				cw.hide('pop-out');
 				return false;
 			}
 
@@ -168,7 +204,7 @@
 				cw.addEventListener('hide', function() {
 					vc = DC.createRect(vm.imgSrc, function() {
 						vc && vc.hide();
-						cw.show('slide-in-bottom');
+						cw.show('pop-in');
 					});
 				});
 			});
@@ -188,12 +224,8 @@
 				vc && vc.hide();
 			});
 
-			var mp3 = DC.$('audio').get(0),
-				img$ = DC.$('.imgRoom'),
-				blur$ = DC.$('.blur');
-
 			var vm = new Vue({
-				el: 'body',
+				el: '#app',
 				data: {
 					list: [],
 					crr: 0,
@@ -203,13 +235,18 @@
 						n: '爱情三脚猫',
 						u: ''
 					},
-					imgSrc: '', //专辑图片
+					imgSrc: '../../img/random/zx/1.jpg', //专辑图片
 					pro: 0, //进度条
 
 					isPlay: false, //是否在播放
 					indexLen: '00:00',
 					maxLen: '00:00',
 					model: 1, //播放模式0顺序，1随机
+
+					els: {
+						mp3: null,
+						img: null
+					}
 
 				},
 				computed: {
@@ -221,8 +258,14 @@
 						return this.data.n;
 					}
 				},
-				ready: function() {
+				mounted: function() {
 					var _vm = this;
+					_vm.els.mp3 = DC.$('audio').get(0);
+					_vm.els.img = DC.$('.imgRoom');
+				},
+				created: function() {
+					var _vm = this;
+
 					mui.plusReady(function() {
 						var w = plus.webview.currentWebview();
 						mui.extend(_vm.data, w.data);
@@ -230,12 +273,12 @@
 						_vm.getRanDomImg();
 						//初始化事件
 						_vm._mp3EventInit();
-
 					});
-					
+
 					_vm._readMusicList();
 
 				},
+
 				methods: {
 					getRanDomImg: function() {
 						this.imgSrc = randomImg.zx();
@@ -253,35 +296,40 @@
 							this.playMusic();
 						}
 						this.isPlay = !this.isPlay;
-
 					},
 					//改变播放顺序模式
-					changeModel: function(){
+					changeModel: function() {
 						this.model = +!this.model;
 					},
 
 					//开始播放
 					playMusic: function() {
-						mp3.play();
+						this.els.mp3.play();
 					},
 					//暂停 停止
 					stopMusic: function() {
-						mp3.pause();
+						this.els.mp3.pause();
 					},
 
 					//播放器事件初始化
 					_mp3EventInit: function() {
-						var _vm = this;
+						this.els.mp3.ondurationchange = function(){
+							this.maxLen = this._timeToString(this.els.mp3.duration);
+						}.bind(this);
 						//当媒介元素的持续时间以及其他媒介数据已加载时
-						mp3.onloadeddata = function() {
-							this.maxLen = this._timeToString(mp3.duration);
+						this.els.mp3.onloadeddata = function() {
+							//this.maxLen = this._timeToString(this.els.mp3.duration);
 						}.bind(this);
 						//当前播放进度改变时
-						mp3.ontimeupdate = function() {
-							var currentPos = mp3.currentTime;
-							this.pro = 100 * currentPos / mp3.duration;
+						this.els.mp3.ontimeupdate = function() {
+							var currentPos = this.els.mp3.currentTime;
+							this.pro = 100 * currentPos / this.els.mp3.duration;
 							this.indexLen = this._timeToString(currentPos);
 							this._updatePro();
+						}.bind(this);
+						//当前歌曲播放完毕时
+						this.els.mp3.onended = function() {
+							this.nextMusic();
 						}.bind(this);
 
 					},
@@ -320,47 +368,47 @@
 					_getRanDomNum: function() {
 						return Math.floor(Math.random() * (this.list.length - 1));
 					},
-					
+
 					//下载音乐
-					downMusic:function(){
+					downMusic: function() {
 						var url = this.src;
 						console.log(url);
 						return;
-						var w = plus.nativeUI.showWaiting('正在下载...',{
-							width:'50%'
+						var w = plus.nativeUI.showWaiting('正在下载...', {
+							width: '50%'
 						});
-						
-						DC.downFile(url,function(err,path){
+
+						DC.downFile(url, function(err, path) {
 							//下载完毕
-							if(w){
+							if(w) {
 								w.close();
 								w = null;
 							}
-							
-							if(!err){
-								mui.alert('下载成功：'+path);
-							}else{
-								mui.alert('下载失败'+JSON.stringify(err));
+
+							if(!err) {
+								mui.alert('下载成功：' + path);
+							} else {
+								mui.alert('下载失败' + JSON.stringify(err));
 							}
-						},function(size){
+						}, function(size) {
 							//下载进度改变
-							w && w.setTitle(size+'%');
+							w && w.setTitle(size + '%');
 						});
 					}
 
 				},
 				watch: {
 					isPlay: function() {
-						var _vm = this;
-						if(_vm.isPlay) { //如果正在播放
-							img$.css('animationPlayState', 'running');
-						} else {
-							img$.css('animationPlayState', 'paused');
-						}
+						var state = this.isPlay ? 'running' : 'paused';
+						this.els.img.css({
+							'animationPlayState': state,
+							'webkitAnimationPlayState': state
+						});
+
 					},
 					//播放模式改变
-					model: function(){
-						mui.toast((this.model?'随机':'顺序')+'播放');
+					model: function() {
+						mui.toast((this.model ? '随机' : '顺序') + '播放');
 					}
 				}
 			});
