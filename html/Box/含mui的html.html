@@ -11,39 +11,48 @@
 	</head>
 
 	<body>
+		<div id='app'>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">测试页面{{name}}</h1>
 
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">测试页面</h1>
+				<style type="text/css">
+					.app-video-room {
+						position: relative;
+					}
+					
+					.app-video {
+						width: 100%;
+						height: 100%;
+					}
+				</style>
+			</header>
 
-			<style type="text/css">
-				.app-video-room {
-					position: relative;
-				}
-				
-				.app-video{
-					width: 100%;
-					height: 100%;
-				}
-				
-				
-			</style>
-		</header>
-
-		<div class="mui-content">
-
+			<div class="mui-content">
+				<!--			
 			<div class="app-video-room">
 				<video class="app-video">
 					<source src="1.webm" type="video/webm"></source>
 				</video>
 				<span class="mui-icon iconfont icon-bofang app-absCenter app-text-30"></span>
-			</div>
+			</div>-->
 
+			</div>
 		</div>
 
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script src="../../js/App/Vhp.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var vhp = new VHP({
+				data: {
+					name: '李白'
+				},
+				listens: [
+					'name'
+				]
+			});
 		</script>
 	</body>
 
