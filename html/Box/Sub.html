@@ -32,15 +32,18 @@
 							<div class="mui-media-body">开发</div>
 						</a>
 					</li>
-					
+
 					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<a href="#">
-							<span class="mui-icon iconfont icon-yinle"></span> 
+							<span class="mui-icon iconfont icon-yinle"></span>
 							<div class="mui-media-body">音乐</div>
 						</a>
 					</li>
 
 				</ul>
+				
+				<p>输入你的名字并查看首页模块的标题栏！</p>
+				<input type="text" v-model='name' placeholder="We Happy!">
 
 			</div>
 		</div>
@@ -48,7 +51,8 @@
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/App/App.js"></script>
 		<script type="text/javascript" src="../../js/vue.min.js"></script>
-		<script type="text/javascript" src="../../js/vue-tap.js"></script>
+
+		<script type="text/javascript" src="../../js/App/Vhp.js"></script>
 
 		<script type="text/javascript">
 			mui.init({
@@ -62,12 +66,22 @@
 				}
 			});
 
+			new VHP({
+				el: '#box',
+				data: {
+					name: 'We Happy!'
+				},
+				listens: ['name']
+			});
+
 			DC.ready(function() {
 				//自动上拉
 				setTimeout(function() {
 					mui('#box').pullRefresh().pulldownLoading();
 				}, 200);
 
+			},function(){
+				console.log(this.id);
 			});
 
 			var vm = new Vue({

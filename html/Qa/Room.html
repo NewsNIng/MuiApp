@@ -12,12 +12,14 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav app-header"">
-			<h1 id="title" class="mui-title">问答</h1>
+		<header class="mui-bar mui-bar-nav app-header" id='box'>
+			<h1 id="title" class="mui-title">{{name}}</h1>
 		</header>
 		<div class="mui-content"></div>
 	</body>
 	<script src="../../js/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/vue.min.js" ></script>
+	<script type="text/javascript" src="../../js/App/Vhp.js" ></script>
 	<script type="text/javascript">
 		//启用双击监听
 		mui.init({
@@ -33,6 +35,14 @@
 				}
 			}]
 		});
+		
+		new VHP({
+				el: '#box',
+				data: {
+					name: '我是主页'
+				},
+				listens:['name']
+			});
 
 		var contentWebview = null;
 		//双击滚到到顶部
@@ -40,7 +50,7 @@
 			if(contentWebview == null) {
 				contentWebview = plus.webview.currentWebview().children()[0];
 			}
-			contentWebview.evalJS("mui('#box').pullRefresh().scrollTo(0,0,100)");
+			contentWebview.evalJS("mui('#app').pullRefresh().scrollTo(0,0,100)");
 		});
 	</script>
 

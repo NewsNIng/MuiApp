@@ -24,7 +24,9 @@ var DC = (function($, undefined) {
 		rfn && $.ready(rfn);
 		prfn && $.ready((function(f) {
 			return f && window.plus && f || function() {
-				document.addEventListener("plusready", f, false);
+				document.addEventListener("plusready", function(){
+					return f.apply(plus.webview.currentWebview());
+				}, false);
 			};
 		}(prfn)));
 		return this;

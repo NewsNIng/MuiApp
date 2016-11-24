@@ -228,7 +228,9 @@
 					"css/mui.css",
 					"js/mui.min.js",
 					"css/App.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/App/Vhp.js",
+					"js/vue.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -275,7 +277,8 @@
 					"js/vue-tap.js",
 					"fonts/mui.ttf",
 					"css/iconfont.css",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"js/App/Vhp.js"
 				],
 				"refer": [],
 				"priority": 0
