@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/App.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<style type="text/css">
+			.mui-media-body {
+				text-align: left;
+				padding-left: .5rem;
+				background-color: rgba(0, 0, 0, .6);
+				color: white !important;
+				margin-top: 0 !important;
+				bottom: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id='box' class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-col-xs-6" v-for='(o,i) of list' @tap='onTap(o)'>
+						<a>
+							<div class="mui-media-body app-abs">
+								<span class="mui-icon iconfont icon-huizhanghuiyuan app-text-12"></span>
+								<span class="app-text-12">{{o.nickname}}</span>
+							</div>
+							<img class="mui-media-object" :src="o.room_src">
+						</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/App/App.js"></script>
+		<script type="text/javascript" src="../../js/vue.min.js"></script>
+		<script type="text/javascript" src="../../js/App/Vhp.js"></script>
+
+		<script type="text/javascript" src="../../js/Config/Config.js"></script>
+		<script type="text/javascript" src="../../js/Config/WebService.js"></script>
+		<script type="text/javascript" src="../../js/Dal/Live.js"></script>
+
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#box',
+					deceleration: (mui.os.ios ? 0.003 : 0.0006),
+					down: {
+						callback: down
+					},
+					up: {
+						callback: up
+					}
+				}
+			});
+
+			var vm = new VHP({
+				el: '#box',
+				data: {
+					list: []
+				},
+				methods: {
+					//获取数据列表
+					getNetData: function(callback, isDown) {
+						var _vm = this;
+						new Live().getAllLive(pageNo, pageSize, function(err, data) {
+							if(err) return mui.toast(err.message);
+							isDown && (_vm.list.length = 0);
+							_vm.list.push.apply(_vm.list, data.data);
+							callback && callback(!data.data.length);
+						});
+					},
+					onTap: function(o) {
+						mui.openWindow('../Common/Browser.html','borwser',{
+							extras: {
+								url: _DOUYU_M_+o.url
+							}
+						});
+					}
+				}
+
+			}).vm;
+
+			DC.ready(function() {
+				setTimeout(function() {
+					mui('#box').pullRefresh().pulldownLoading();
+				}, 200);
+
+			}, function() {
+				console.log(this.id);
+			});
+
+			var pageNo = 0,
+				pageSize = 30;
+			//下拉刷新
+			function down() {
+				pageNo = 0;
+				vm.getNetData(function() {
+					mui('#box').pullRefresh().endPulldownToRefresh();
+				}, true);
+			}
+			//上啦
+			function up() {
+				pageNo++;
+				vm.getNetData(function(c) {
+					mui('#box').pullRefresh().endPullupToRefresh(c);
+				});
+			}
+		</script>
+	</body>
+
+</html>

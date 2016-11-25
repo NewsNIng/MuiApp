@@ -207,7 +207,8 @@
 				],
 				"refer": [
 					"html/Box/Room.html",
-					"html/My/My.html"
+					"html/My/My.html",
+					"html/Live/Room.html"
 				],
 				"priority": 0
 			},
@@ -353,6 +354,44 @@
 					"img/random/zx/3.jpg",
 					"img/random/zx/14.jpg",
 					"img/random/zx/13.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/Live/Sub.html": {
+				"resources": [
+					"js/Dal/Live.js",
+					"js/Config/WebService.js",
+					"js/Config/Config.js",
+					"js/App/App.js",
+					"js/App/Vhp.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/App.css",
+					"css/mui.min.css",
+					"js/vue.min.js",
+					"fonts/mui.ttf",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"html/Common/Browser.html"
+				],
+				"priority": 0
+			},
+			"html/Live/Room.html": {
+				"resources": [
+					"html/Live/Sub.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/Common/Browser.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/App/App.js",
+					"js/mui.min.js",
+					"css/App.css",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

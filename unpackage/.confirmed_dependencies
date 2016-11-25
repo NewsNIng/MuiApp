@@ -16,7 +16,8 @@
 			"html/Qa/Room.html",
 			"html/Box/Room.html",
 			"html/My/My.html",
-			"html/Music/Room.html"
+			"html/Music/Room.html",
+			"html/Live/Room.html"
 		]
 	},
 	"html/Qa/List.html": {
@@ -161,5 +162,41 @@
 			"img/random/zx/13.jpg"
 		],
 		"refer": []
+	},
+	"html/Live/Sub.html": {
+		"resources": [
+			"js/Dal/Live.js",
+			"js/Config/WebService.js",
+			"js/Config/Config.js",
+			"js/App/App.js",
+			"js/App/Vhp.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/App.css",
+			"css/mui.min.css",
+			"js/vue.min.js",
+			"fonts/mui.ttf",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"html/Common/Browser.html"
+		]
+	},
+	"html/Live/Room.html": {
+		"resources": [
+			"html/Live/Sub.html"
+		],
+		"refer": [
+			"html/Live/Sub.html"
+		]
+	},
+	"html/Common/Browser.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/App/App.js",
+			"js/mui.min.js",
+			"css/App.css",
+			"css/mui.min.css"
+		]
 	}
 }
