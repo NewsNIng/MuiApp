@@ -198,5 +198,12 @@
 			"css/App.css",
 			"css/mui.min.css"
 		]
+	},
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/vue.min.js"
+		]
 	}
 }
