@@ -9,7 +9,8 @@
 			"html/Qa/List.html",
 			"html/Qa/Room.html",
 			"css/iconfont.css",
-			"fonts/iconfont.ttf"
+			"fonts/iconfont.ttf",
+			"js/Common/androidBack.js"
 		],
 		"refer": [
 			"html/Qa/List.html",

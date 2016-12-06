@@ -203,7 +203,8 @@
 					"html/Qa/Room.html",
 					"css/iconfont.css",
 					"fonts/iconfont.ttf",
-					"html/Music/Room.html"
+					"html/Music/Room.html",
+					"js/Common/androidBack.js"
 				],
 				"refer": [
 					"html/Box/Room.html",
